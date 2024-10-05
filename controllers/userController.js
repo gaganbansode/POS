@@ -6,7 +6,7 @@ const loginController = async (req, res) => {
       userId,
       password
     });
-    res.json(req.body);
+    res.json(req);
     // if (user) {
     //   res.status(200).send(user);
     // } else {
