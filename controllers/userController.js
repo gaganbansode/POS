@@ -6,14 +6,15 @@ const loginController = async (req, res) => {
       userId,
       password
     });
-    if (user) {
-      res.status(200).send(user);
-    } else {
-      res.json({
-        message: "Login Fail",
-        user,
-      });
-    }
+    res.json(user);
+    // if (user) {
+    //   res.status(200).send(user);
+    // } else {
+    //   res.json({
+    //     message: "Login Fail",
+    //     user,
+    //   });
+    // }
   } catch (error) {
     console.log(error);
   }
