@@ -4,8 +4,7 @@ const loginController = async (req, res) => {
     const { userId, password } = req.body;
     const user = await userModel.findOne({
       userId,
-      password,
-      verified: false,
+      password
     });
     if (user) {
       res.status(200).send(user);
