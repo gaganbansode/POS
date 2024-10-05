@@ -2,19 +2,19 @@ const userModel = require("../models/userModel");
 const loginController = async (req, res) => {
   try {
     const { userId, password } = req.body;
-    const user = await userModel.find({
+    const user = await userModel.findOne({
       userId,
-      password
+      password,
+      verified: false,
     });
-    res.json(req);
-    // if (user) {
-    //   res.status(200).send(user);
-    // } else {
-    //   res.json({
-    //     message: "Login Fail",
-    //     user,
-    //   });
-    // }
+    if (user) {
+      res.status(200).send(user);
+    } else {
+      res.json({
+        message: "Login Fail",
+        user,
+      });
+    }
   } catch (error) {
     console.log(error);
   }
