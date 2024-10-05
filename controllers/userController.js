@@ -2,7 +2,7 @@ const userModel = require("../models/userModel");
 const loginController = async (req, res) => {
   try {
     const { userId, password } = req.body;
-    const user = await userModel.findOne({
+    const user = await userModel.find({
       userId,
       password
     });
